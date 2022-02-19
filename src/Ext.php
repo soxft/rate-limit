@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Includes\RateLimit;
+namespace RateLimit;
 
 abstract class Ext
 {

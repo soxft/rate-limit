@@ -1,10 +1,10 @@
 <?php
 
-namespace Api\Includes\RateLimit\Exception;
+namespace RateLimit\Exception;
 
-use \Api\Includes\RateLimit\Rate;
+use RateLimit\Rate;
 
-class RateExceededException extends \RuntimeException
+class RateExceededException extends \Throwable
 {
     private string $identifier;
     private Rate $rate;

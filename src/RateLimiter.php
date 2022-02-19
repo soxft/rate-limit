@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Api\Includes\RateLimit;
+namespace RateLimit;
 
-use \Api\Includes\RateLimit\Exception\RateExceededException;
+use RateLimit\Exception\RateExceededException;
 
 final class RateLimiter extends Ext
 {

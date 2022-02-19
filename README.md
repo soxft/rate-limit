@@ -48,4 +48,4 @@ echo $status->left(); //99
 
 Released under MIT License - see the [License File](LICENSE) for details.
 
-forked from [nikolaposa/rate-limie][https://github.com/nikolaposa/rate-limit]
+Secondary development based on [nikolaposa/rate-limie][https://github.com/nikolaposa/rate-limit]

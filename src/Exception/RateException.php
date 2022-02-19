@@ -1,7 +1,7 @@
 <?php
 
-namespace Api\Includes\RateLimit\Exception;
+namespace RateLimit\Exception;
 
-class RateException extends \RuntimeException
+class RateException extends \Throwable
 {
 }
