@@ -1,0 +1,34 @@
+{
+    "name": "soxft/rate-limit",
+    "description": "General purpose rate limiter implementation.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "rate limit",
+        "redis"
+    ],
+    "authors": [
+        {
+            "name": "Nikola Poša",
+            "email": "posa.nikola@gmail.com",
+            "homepage": "https://www.nikolaposa.in.rs"
+        },
+        {
+            "name": "soxft",
+            "email": "contact@xcsoft.top",
+            "homepage": "https://xsot.cn"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-redis": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "RateLimit\\": "src/"
+        }
+    }
+}
