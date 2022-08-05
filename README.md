@@ -1,6 +1,6 @@
 # Rate Limit
 
-基于Redis 的 PHP 速率限制
+> 基于Redis 的 PHP 速率限制
  
 ## Installation
 
