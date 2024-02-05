@@ -18,14 +18,25 @@ class Status extends Ext
         $this->redis = $redis;
     }
 
-    function left(): int
+
+    /**
+     * Get the number of operations left.
+     *
+     * @return integer
+     */
+    public function left(): int
     {
         $key = $this->key($this->identifier);
         $left = $this->rate->getOperations() - $this->getCurrent($key);
         return $left >= 0 ? $left : 0;
     }
 
-    function reset()
+    /**
+     * Reset the rate limit.
+     *
+     * @return void
+     */
+    public function reset()
     {
         $this->redis->del($this->key($this->identifier));
     }
