@@ -14,7 +14,7 @@ class Rate
      * @var integer
      */
     protected int $operations;
-    
+
     /**
      * The interval in seconds.
      *
@@ -44,9 +44,9 @@ class Rate
      *
      * @param integer $seconds
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function seconds(int $operations, int $seconds)
+    public static function seconds(int $operations, int $seconds): Rate
     {
         return new static($operations, $seconds);
     }
@@ -58,9 +58,9 @@ class Rate
      *
      * @param integer $minutes
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function minutes(int $operations, int $minutes)
+    public static function minutes(int $operations, int $minutes): Rate
     {
         return new static($operations, $minutes * 60);
     }
@@ -71,9 +71,9 @@ class Rate
      * Rate::hours(10, 24) will allow 10 operations per 24 hours.
      *
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function hours(int $operations, int $hours)
+    public static function hours(int $operations, int $hours): Rate
     {
         return new static($operations, $hours * 3600);
     }
@@ -84,9 +84,9 @@ class Rate
      * Rate::perSecond(10) will allow 10 operations per second.
      *
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function perSecond(int $operations)
+    public static function perSecond(int $operations): Rate
     {
         return new static($operations, 1);
     }
@@ -97,9 +97,9 @@ class Rate
      * Rate::perMinute(10) will allow 10 operations per minute.
      *
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function perMinute(int $operations)
+    public static function perMinute(int $operations): Rate
     {
         return new static($operations, 60);
     }
@@ -110,9 +110,9 @@ class Rate
      * Rate::perHour(10) will allow 10 operations per hour.
      *
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function perHour(int $operations)
+    public static function perHour(int $operations): Rate
     {
         return new static($operations, 3600);
     }
@@ -123,9 +123,9 @@ class Rate
      * Rate::perDay(10) will allow 10 operations per day.
      *
      * @param integer $operations
-     * @return void
+     * @return Rate
      */
-    public static function perDay(int $operations)
+    public static function perDay(int $operations): Rate
     {
         return new static($operations, 86400);
     }
@@ -137,9 +137,9 @@ class Rate
      *
      * @param integer $operations
      * @param integer $interval
-     * @return void
+     * @return Rate
      */
-    public static function custom(int $operations, int $interval)
+    public static function custom(int $operations, int $interval): Rate
     {
         return new static($operations, $interval);
     }
