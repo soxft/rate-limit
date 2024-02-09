@@ -16,7 +16,11 @@ abstract class Ext
     protected function key(string $identifier): string
     {
         if ($this->keyPrefix === '') {
-            $this->keyPrefix = 'ratelimit';
+            if (str_starts_with($identifier, ':')) {
+                $this->keyPrefix = 'ratelimit';
+            } else {
+                $this->keyPrefix = ':ratelimit';
+            }
         }
 
         return "{$this->keyPrefix}:{$identifier}:{$this->rate->getInterval()}";

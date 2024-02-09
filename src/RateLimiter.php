@@ -21,7 +21,7 @@ final class RateLimiter extends Ext
     {
         $this->rate = $rate;
         $this->redis = $redis;
-        $this->keyPrefix = $keyPrefix . 'ratelimit:';
+        $this->keyPrefix = $keyPrefix;
     }
 
     /**
