@@ -89,6 +89,33 @@ final class RateLimiter extends Ext
     }
 
     /**
+     * Decrement the counter.
+     * 
+     * Demo:
+     * ```php
+     * $redisLimiter = new RedisRateLimiter(Rate::seconds(10, 60), new \Redis());
+     * $redisLimiter->decr('user:1');
+     * ```
+     * 
+     * you can use this method to decrement the counter.
+     *
+     * @param string $identifier
+     * @return Status
+     */
+    public function decrSilently(string $identifier): Status
+    {
+        $key = $this->key($identifier);
+
+        $current = $this->getCurrent($key);
+
+        if ($current > 0) {
+            $this->decrCounter($key);
+        }
+
+        return new Status($identifier, $this->keyPrefix, $this->rate, $this->redis);
+    }
+
+    /**
      * Get the number of operations left.
      *
      * Demo:
@@ -141,6 +168,24 @@ final class RateLimiter extends Ext
 
         if ($current === 1) {
             $this->redis->expire($key, $this->rate->getInterval());
+        }
+
+        return $current;
+    }
+
+
+    /**
+     * decr the counter.
+     *
+     * @param string $key
+     * @return integer
+     */
+    private function decrCounter(string $key): int
+    {
+        $current = $this->redis->decr($key);
+
+        if ($current <= 0) {
+            $this->redis->del($key);
         }
 
         return $current;
