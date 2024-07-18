@@ -4,7 +4,7 @@ namespace RateLimit;
 
 class Status extends Ext
 {
-    private $identifier;
+    private string $identifier;
 
     function __construct(
         string $identifier,

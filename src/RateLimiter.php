@@ -17,7 +17,7 @@ use RateLimit\Exception\RateExceededException;
  */
 final class RateLimiter extends Ext
 {
-    public function __construct(Rate $rate, \Redis $redis, string $keyPrefix = '')
+    public function __construct(Rate $rate, \Redis $redis, string $keyPrefix = 'limiter')
     {
         $this->rate = $rate;
         $this->redis = $redis;
@@ -130,6 +130,7 @@ final class RateLimiter extends Ext
     public function left(string $identifier): int
     {
         $key = $this->key($identifier);
+
         $left = $this->rate->getOperations() - $this->getCurrent($key);
         return $left >= 0 ? $left : 0;
     }

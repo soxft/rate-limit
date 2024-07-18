@@ -5,6 +5,6 @@ namespace RateLimit\Exception;
 /**
  * A rate exception.
  */
-class RateException extends \Throwable
+class RateException extends \Exception
 {
 }

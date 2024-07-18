@@ -4,7 +4,7 @@ namespace RateLimit\Exception;
 
 use RateLimit\Rate;
 
-class RateExceededException extends \Throwable
+class RateExceededException extends \Exception
 {
     private string $identifier;
     private Rate $rate;
